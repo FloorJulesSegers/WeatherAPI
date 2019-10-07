@@ -1,25 +1,51 @@
 <!DOCTYPE html>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Weather API</title>
+        <title>Five day weather</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./CSS/main.css">
     </head>
     <body>
         <div id="search">
-            <input id="input">
-            <button>Search</button>
+            <input id="findCity">
+            <button id="search">Search</button>
         </div>
 
-        <div>
-        <div id="description"></div>
-        <h1 id="temp"></h1>
-        <div id="location"></div>
-         </div>
+        <div id="city"></div>
 
+        <div id="weather">
+            <div id="dayOne"></div>
+            <div id="firstTemp"></div>
+            <div id="Onedescription"></div>
+        </div>
+
+        <div id="weather">
+                <div id="dayTwo"></div>
+                <div id="temp"></div>
+                <div id="description"></div>
+        </div>
+
+        <div id="weather">
+                <div id="dayThree"></div>
+                <div id="temp"></div>
+                <div id="description"></div>
+        </div>
+
+        <div id="weather">
+                <div id="dayFour"></div>
+                <div id="temp"></div>
+                <div id="description"></div>
+        </div>
+
+        <div id="weather">
+                <div id="dayFive"></div>
+                <div id="temp"></div>
+                <div id="description"></div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="./JS/script.js" async defer></script>
-
     </body>
 </html>

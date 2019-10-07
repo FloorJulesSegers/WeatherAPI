@@ -1,37 +1,23 @@
-//const apiKey = "8526085382366075361f5d8780b8ab00";
+const apiKey = "8526085382366075361f5d8780b8ab00";
+const cityName = "London"/*document.getElementById("input")*/;
 
-const key = '8526085382366075361f5d8780b8ab00';
-if(key=='') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
+const input = document.getElementById("findCity");
+const btn = document.getElementById("search");
+const city = document.getElementById("city");
 
-function weatherBallon( cityID ) {
-	fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
-	.then(function(resp) { return resp.json() }) // Convert data to json
-	.then(function(data) {
-		drawWeather(data);
-	})
-	.catch(function() {
-		// catch any errors
-	});
-}
-function drawWeather( d ) {
-  var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32);
-  var description = d.weather[0].description; 
-	
-	document.getElementById('description').innerHTML = description;
-	document.getElementById('temp').innerHTML = celcius + '&deg;';
-	document.getElementById('location').innerHTML = d.name;
-  
-  if( description.indexOf('rain') > 0 ) {
-  	document.body.className = 'rainy';
-  } else if( description.indexOf('cloud') > 0 ) {
-  	document.body.className = 'cloudy';
-  } else if( description.indexOf('sunny') > 0 ) {
-  	document.body.className = 'sunny';
-  } else {
-  	document.body.className = 'clear';
+btn.addEventListener("click", onclick);
+
+function onclick() {
+	getWeather(input.value);
   }
+
+function getWeather(){
+	axios
+	.get (`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&APPID=${apiKey}&unit=metrics`)
+	.then(function(response) {
+		let responseData = response.data;
+		//name
+		city.innerText = responseData.name;
 }
-window.onload = function() {
-	weatherBallon( 6167865 );
-}
+
+getWeather();
