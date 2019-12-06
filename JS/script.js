@@ -1,6 +1,6 @@
 
 const apiKey = "8526085382366075361f5d8780b8ab00";
-const cityName = "London"
+//const cityName = "London"
 //document.getElementById("findCity");
 /*document.getElementById("input")*/;
 
@@ -50,8 +50,11 @@ function onclick() {
 
 // Make a request for a user with a given ID
 function getWeather(){
+const cityName = document.getElementById("findCity").value;
+
 axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&APPID=${apiKey}&unit=metrics`)
   .then(function (response) {
+
     // handle success
 	console.log(response);
 	let responseData = response.data;
